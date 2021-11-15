@@ -1,0 +1,17 @@
+***API***
+
+//day3
+https://reqres.in/api/users?page=2  --> URI ya da endpoint
+
+https://reqres.in--> base url
+api/users --> path param
+page=2 -->query param
+
+//day4
+Assertion
+matcher class
+DE-Serialization
+Serialization
+-pojo
+-expected data class -testdata class
+-object mapper
