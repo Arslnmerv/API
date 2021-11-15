@@ -22,23 +22,21 @@ public class GetRequest07 extends HerokuAppTestBase {
     //            }
 
     @Test
-    public void test (){
+    public void test() {
 
-        spec02.pathParams("parametre1" , "booking" , "parametre2" , 2);
+        spec02.pathParams("parametre1", "booking", "parametre2", 2);
 
         Response response = given().accept("application/json").spec(spec02).when().get("/{parametre1}/{parametre2}");
-response.prettyPrint();
+        response.prettyPrint();
+
         JsonPath jsonPath = response.jsonPath();
 
-        Assert.assertEquals("Sally" , jsonPath.getString("firstname"));
-        Assert.assertEquals("Wilson" , jsonPath.getString("lastname"));
-        Assert.assertEquals(753 , jsonPath.getInt("totalprice"));
-        Assert.assertEquals(true , jsonPath.getBoolean("depositpaid"));
-        Assert.assertEquals("2020-10-31" , jsonPath.getString("bookingdates.checkin"));
+        Assert.assertEquals("Sally", jsonPath.getString("firstname"));
+        Assert.assertEquals("Wilson", jsonPath.getString("lastname"));
+        Assert.assertEquals(753, jsonPath.getInt("totalprice"));
+        Assert.assertEquals(true, jsonPath.getBoolean("depositpaid"));
+        Assert.assertEquals("2020-10-31", jsonPath.getString("bookingdates.checkin"));
         Assert.assertEquals("2021-06-26", jsonPath.getString("bookingdates.checkout"));
-
-
-
 
 
     }

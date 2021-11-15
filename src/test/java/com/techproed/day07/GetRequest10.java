@@ -24,7 +24,7 @@ public class GetRequest10 extends DummyTestBase {
     //  bunların içerisinde “Charde Marshall” olduğunu test edin
 
 
-     //Groovy dili javanın alt dilidir. biz bu dil yardımı ile loop kullanmadan
+    //Groovy dili javanın alt dilidir. biz bu dil yardımı ile loop kullanmadan
     // gelen responsedaki değerleri bir şarta bağlı olarak listeye yazdırabiliyoruz
     //Status kodunun 200,
 

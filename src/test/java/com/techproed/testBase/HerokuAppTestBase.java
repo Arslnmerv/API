@@ -9,9 +9,9 @@ public class HerokuAppTestBase {
     protected RequestSpecification spec02;
 
     @Before
-    public void setUp(){
+    public void setUp() {
 
-        spec02= new RequestSpecBuilder().
+        spec02 = new RequestSpecBuilder().
                 setBaseUri("https://restful-booker.herokuapp.com").
                 build();
     }

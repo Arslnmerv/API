@@ -2,7 +2,9 @@ package com.techproed.day05;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+
 import static org.hamcrest.Matchers.*;
+
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -21,9 +23,9 @@ ve checkout date'in 2020-09-30 oldugunu test edin
      */
 
     @Test
-    public void test(){
-        String url="https://restful-booker.herokuapp.com/booking/7";
-        Response response= given().
+    public void test() {
+        String url = "https://restful-booker.herokuapp.com/booking/7";
+        Response response = given().
                 accept("application/json").
                 when().
                 get(url);
@@ -45,11 +47,11 @@ ve checkout date'in 2020-09-30 oldugunu test edin
                 assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
-                body("firstname",equalTo("Sally"),
+                body("firstname", equalTo("Sally"),
                         "lastname", equalTo("Wilson"),
                         "totalprice", equalTo(432),
-                        "bookingdates.checkin",equalTo("2016-05-14"),
-                        "bookingdates.checkout",equalTo("2016-07-12"));
+                        "bookingdates.checkin", equalTo("2016-05-14"),
+                        "bookingdates.checkout", equalTo("2016-07-12"));
 
     }
 }

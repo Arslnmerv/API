@@ -29,19 +29,19 @@ public class GetRequest09 extends DummyTestBase {
         spec03.pathParam("parametre1", "employees");
 
         Response response = given().accept("application/json").spec(spec03).when().get("/{parametre1}");
-      //  response.prettyPrint();
+        response.prettyPrint();
 
         JsonPath jsonPath = response.jsonPath();
         assertEquals(200, response.getStatusCode());
         assertEquals(24, jsonPath.getList("data.id").size());
         assertEquals("Airi Satou", jsonPath.getString("data[4].employee_name"));
-       assertEquals(372000, jsonPath.getInt("data[5].employee_salary"));
+        assertEquals(372000, jsonPath.getInt("data[5].employee_salary"));
 
         assertTrue(jsonPath.getList("data.employee_name").contains("Rhona Davidson"));
-        assertTrue(jsonPath.getList("data.employee_age").stream().anyMatch(t-> t.equals(21) && t.equals(61) &&  t.equals(23)));
+        assertTrue(jsonPath.getList("data.employee_age").stream().anyMatch(t -> t.equals(21) && t.equals(61) && t.equals(23)));
 
-//
-//        List<Integer> arananyaslar = Arrays.asList(21,23,61);
-//        assertTrue(jsonPath.getList("data.employee_age").containsAll(arananyaslar));
+
+        List<Integer> arananyaslar = Arrays.asList(21, 23, 61);
+        assertTrue(jsonPath.getList("data.employee_age").containsAll(arananyaslar));
     }
 }

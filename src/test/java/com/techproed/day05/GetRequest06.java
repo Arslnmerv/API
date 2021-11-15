@@ -23,7 +23,7 @@ public class GetRequest06 extends JsonPlaceHolderTestBase {
 
     @Test
     public void test() {
-        //String url = "https://jsonplaceholder.typicode.com/todos/123";
+
         spec01.pathParams("parametre1", "todos", "parametre2", 123);
 
         Response response = given().accept("application/json").spec(spec01).when().get("/{parametre1}/{parametre2}");
@@ -41,10 +41,10 @@ public class GetRequest06 extends JsonPlaceHolderTestBase {
 
         JsonPath jsonPath = response.jsonPath();
 
-        assertEquals(200,response.getStatusCode());
+        assertEquals(200, response.getStatusCode());
         assertEquals("application/json; charset=utf-8", response.contentType());
         assertEquals("cloudflare", response.getHeader("Server"));
-        assertEquals("7",jsonPath.getString("userId"));
+        assertEquals("7", jsonPath.getString("userId"));
         assertEquals("esse et quis iste est earum aut impedit", jsonPath.getString("title"));
         assertEquals("false", jsonPath.getString("completed"));
 

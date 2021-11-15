@@ -14,12 +14,12 @@ import static org.junit.Assert.assertEquals;
 
 public class GetRequest11TestData extends JsonPlaceHolderTestBase {
     @Test
-    public void test () {
+    public void test() {
 
         spec01.pathParams("parametre1", "todos", "parametre2", 2);
 
         JsonPlaceHolderTestData json = new JsonPlaceHolderTestData();
-        HashMap <String , Object> expectedData = (HashMap<String, Object>) json.setupTestData();
+        HashMap<String, Object> expectedData = (HashMap<String, Object>) json.setupTestData();
         System.out.println(expectedData);
 
         Response response = given().accept("application/json").spec(spec01).when().get("/{parametre1}/{parametre2}");
@@ -43,7 +43,6 @@ public class GetRequest11TestData extends JsonPlaceHolderTestBase {
         assertEquals(expectedData.get("title"), jsonPath.get("title"));
         assertEquals(expectedData.get("completed"), jsonPath.getBoolean("completed"));
 
-        //De-serialization
 
     }
-    }
+}

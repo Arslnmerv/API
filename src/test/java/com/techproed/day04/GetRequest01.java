@@ -18,7 +18,7 @@ Oldugunu test edin
  */
 
     @Test
-            public void test01 () {
+    public void test01() {
 
         //1- api testi yaparken ilk olarak (endpoint) url belirlenmeli
 
@@ -30,8 +30,8 @@ Oldugunu test edin
 
         //3-  request gonder
 
-         Response response = given().accept("application/json").when().get(url);
-         //accept ("application/json") kullanilabilir
+        Response response = given().accept("application/json").when().get(url);
+        //accept ("application/json") kullanilabilir
         response.prettyPrint();
 
         //4- actual result olustur.
@@ -51,11 +51,11 @@ Oldugunu test edin
 
         System.out.println("response.getHeaders() = " + response.getHeaders());
 
-//        Assert.assertEquals(200,response.getStatusCode());
-//        //expected kismi bize text olarak verilen degerdir, actual kismi ise responsedan donen degerdir.
-//
-//        Assert.assertEquals("application/json; charset=utf-8",response.contentType());
-//        Assert.assertEquals("HTTP/1.1 200 OK",response.getStatusLine());
+        Assert.assertEquals(200,response.getStatusCode());
+        //expected kismi bize text olarak verilen degerdir, actual kismi ise responsedan donen degerdir.
+
+        Assert.assertEquals("application/json; charset=utf-8",response.contentType());
+        Assert.assertEquals("HTTP/1.1 200 OK",response.getStatusLine());
 
         response.then().assertThat().statusCode(200).contentType(ContentType.JSON).statusLine("HTTP/1.1 200 OK");
     }

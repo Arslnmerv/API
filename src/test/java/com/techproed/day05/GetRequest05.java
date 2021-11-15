@@ -23,22 +23,22 @@ public class GetRequest05 {
     @Test
     public void test() {
         String url = "http://dummy.restapiexample.com/api/v1/employees";
-//
-        Response response = given().when().accept("application/json").get(url);
-    //    response.prettyPrint();
 
-//        response.then().assertThat().statusCode(200).contentType("application/json").
-//                body("data.profile_image", hasSize(24),
-//                        "data.employee_name", hasItem("Ashton Cox"),
-//                        "data.employee_age", hasItems(21, 61, 23));
+        Response response = given().when().accept("application/json").get(url);
+        response.prettyPrint();
+
+        response.then().assertThat().statusCode(200).contentType("application/json").
+                body("data.profile_image", hasSize(24),
+                        "data.employee_name", hasItem("Ashton Cox"),
+                        "data.employee_age", hasItems(21, 61, 23));
 
         //w/jsonpath
 
         JsonPath jsonPath = response.jsonPath();
 
-       assertEquals(24, jsonPath.getList("data.profile_image").size());
+        assertEquals(24, jsonPath.getList("data.profile_image").size());
         assertTrue(jsonPath.getString("data.employee_name").contains("Ashton Cox"));
-        assertTrue(jsonPath.getList("data.employee_age").stream().allMatch((t-> t.equals(21) && t.equals(61) && t.equals(23))));
+        assertTrue(jsonPath.getList("data.employee_age").stream().allMatch((t -> t.equals(21) && t.equals(61) && t.equals(23))));
 
 
     }
