@@ -3,26 +3,23 @@ package com.techproed.day07;
 import com.techproed.testBase.JsonPlaceHolderTestBase;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-
 import static org.hamcrest.Matchers.*;
-
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import java.util.HashMap;
-
 import static io.restassured.RestAssured.given;
 
 public class GetRequest11 extends JsonPlaceHolderTestBase {
-    //https://jsonplaceholder.typicode.com/todos/2 url ‘ine istek gönderildiğinde,
-    // Dönen response un
-    // Status kodunun 200, dönen body de,
-    //       "completed": değerinin false
-    //       "title”: değerinin “quis ut nam facilis et officia qui”
-    //       "userId" sinin 1 ve header değerlerinden
-    // "Via" değerinin “1.1 vegur” ve
-    //       "Server" değerinin “cloudflare” olduğunu test edin…
+
+   /* https://jsonplaceholder.typicode.com/todos/2 url ‘ine istek gönderildiğinde,
+     Dönen response un
+     Status kodunun 200,
+      dönen body de,
+           "completed": değerinin false
+           "title”: değerinin “quis ut nam facilis et officia qui”
+           "userId" sinin 1 ve header değerlerinden
+            "Via" değerinin “1.1 vegur” ve
+           "Server" değerinin “cloudflare” olduğunu test edin… */
 
     @Test
     public void test() {
@@ -44,6 +41,7 @@ public class GetRequest11 extends JsonPlaceHolderTestBase {
 
         response.prettyPrint();
 
+        //w/mathers class
         response.then().assertThat().statusCode((int) expectedData.get("statusCode")).
                 headers("via", equalTo(expectedData.get("Via"))
                         , "Server", equalTo(expectedData.get("Server")))
@@ -60,7 +58,6 @@ public class GetRequest11 extends JsonPlaceHolderTestBase {
         assertEquals(expectedData.get("userId"), jsonPath.getInt("userId"));
         assertEquals(expectedData.get("title"), jsonPath.get("title"));
         assertEquals(expectedData.get("completed"), jsonPath.getBoolean("completed"));
-
 
 
     }

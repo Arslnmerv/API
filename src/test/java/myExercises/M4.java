@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
@@ -33,7 +34,7 @@ public class M4 extends DummyTestBase {
         spec03.pathParams("first", "employee", "second", 3);
         Response response = given().spec(spec03).when().get("/{first}/{second}");
 
-        HashMap<String, Object> expectedData = new HashMap<>();
+       Map<String, Object> expectedData = new HashMap<>();
         expectedData.put("statusCode", 200);
         expectedData.put("id", 3);
         expectedData.put("employee_name", "Ashton Cox");

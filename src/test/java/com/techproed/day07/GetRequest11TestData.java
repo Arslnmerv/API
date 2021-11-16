@@ -24,8 +24,9 @@ public class GetRequest11TestData extends JsonPlaceHolderTestBase {
 
         Response response = given().accept("application/json").spec(spec01).when().get("/{parametre1}/{parametre2}");
 
-        response.prettyPrint();
+        //response.prettyPrint();
 
+        //w/mathers class
         response.then().assertThat().statusCode((int) expectedData.get("statusCode")).
                 headers("via", equalTo(expectedData.get("Via"))
                         , "Server", equalTo(expectedData.get("Server")))
@@ -42,6 +43,28 @@ public class GetRequest11TestData extends JsonPlaceHolderTestBase {
         assertEquals(expectedData.get("userId"), jsonPath.getInt("userId"));
         assertEquals(expectedData.get("title"), jsonPath.get("title"));
         assertEquals(expectedData.get("completed"), jsonPath.getBoolean("completed"));
+
+        //w/de-serialization
+        HashMap <String , Object > actualData = response.as(HashMap.class);
+
+        System.out.println("actualData = " + actualData);
+        assertEquals(expectedData.get("userId") , actualData.get("userId"));
+        assertEquals(expectedData.get("title") , actualData.get("title"));
+        assertEquals(expectedData.get("completed") , actualData.get("completed"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
