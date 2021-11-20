@@ -38,7 +38,6 @@ public class GetRequest13  extends DummyTestBase {
             spec(spec03).
             when().
             get("/{parametre1}");
-
     response.prettyPrint();
 
 }
