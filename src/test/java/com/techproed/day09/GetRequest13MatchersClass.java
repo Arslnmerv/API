@@ -4,6 +4,7 @@ import com.techproed.testBase.DummyTestBase;
 import com.techproed.testData.DummyTestData;
 import io.restassured.response.Response;
 import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,17 +46,17 @@ public class GetRequest13MatchersClass extends DummyTestBase {
 
         response.prettyPrint();
 
-        response.then().assertThat().statusCode((Integer)expectedDataMap.get("statusCode")).
-                body("data[4].employee_name",equalTo(expectedDataMap.get("besincicalisan")),
-                        "data.id" ,hasSize((Integer) expectedDataMap.get("calisansayisi")) ,
-                        "data[-2].employee_salary",equalTo(expectedDataMap.get("sondanikincicalisanmaasi")),
-                        "data.employee_age",hasItems(((List)expectedDataMap.get("arananyaslar")).get(0),
+        response.then().assertThat().statusCode((Integer) expectedDataMap.get("statusCode")).
+                body("data[4].employee_name", equalTo(expectedDataMap.get("besincicalisan")),
+                        "data.id", hasSize((Integer) expectedDataMap.get("calisansayisi")),
+                        "data[-2].employee_salary", equalTo(expectedDataMap.get("sondanikincicalisanmaasi")),
+                        "data.employee_age", hasItems(((List) expectedDataMap.get("arananyaslar")).get(0),
                                 ((List<?>) expectedDataMap.get("arananyaslar")).get(1),
                                 ((List<?>) expectedDataMap.get("arananyaslar")).get(2)),
-                        "data[10].employee_name",equalTo(((Map)expectedDataMap.get("onbirincicalisan")).get("employee_name")),
-                        "data[10].employee_salary",equalTo(((Map<?, ?>) expectedDataMap.get("onbirincicalisan")).get("employee_salary")),
-                        "data[10].employee_age",equalTo(((Map<?, ?>) expectedDataMap.get("onbirincicalisan")).get("employee_age")),
-                        "data[10].profile_image",equalTo(((Map<?, ?>) expectedDataMap.get("onbirincicalisan")).get("profile_image")));
+                        "data[10].employee_name", equalTo(((Map) expectedDataMap.get("onbirincicalisan")).get("employee_name")),
+                        "data[10].employee_salary", equalTo(((Map<?, ?>) expectedDataMap.get("onbirincicalisan")).get("employee_salary")),
+                        "data[10].employee_age", equalTo(((Map<?, ?>) expectedDataMap.get("onbirincicalisan")).get("employee_age")),
+                        "data[10].profile_image", equalTo(((Map<?, ?>) expectedDataMap.get("onbirincicalisan")).get("profile_image")));
 
     }
 }

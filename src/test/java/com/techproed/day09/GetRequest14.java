@@ -4,9 +4,11 @@ import com.techproed.testBase.DummyTestBase;
 import com.techproed.testData.DummyTestData;
 import io.restassured.response.Response;
 import org.junit.Test;
+
 import java.util.*;
 
 import static io.restassured.RestAssured.given;
+
 public class GetRequest14 extends DummyTestBase {
 
     /*
@@ -19,21 +21,20 @@ olduğunu test edin.
      */
 
     @Test
-    public void test(){
-        spec03.pathParam("parametre1","employees");
+    public void test() {
+        spec03.pathParam("parametre1", "employees");
 
-        DummyTestData expectedObje=new DummyTestData();
-        HashMap<String,Object>expectedDataMap =  expectedObje.setUpTestData();
+        DummyTestData expectedObje = new DummyTestData();
+        HashMap<String, Object> expectedDataMap = expectedObje.setUpTestData();
         System.out.println(expectedDataMap);
 
-        Response response=given().
+        Response response = given().
                 accept("application/json").
                 spec(spec03).
                 when().
                 get("/{parametre1}");
 
         response.prettyPrint();
-
 
 
     }

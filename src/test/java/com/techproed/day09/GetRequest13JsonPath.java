@@ -5,6 +5,7 @@ import com.techproed.testData.DummyTestData;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
+
 import java.util.*;
 
 import static io.restassured.RestAssured.given;
@@ -47,14 +48,14 @@ public class GetRequest13JsonPath extends DummyTestBase {
 
         //w/sonpath
 
-        JsonPath json=response.jsonPath();
+        JsonPath json = response.jsonPath();
 
-        assertEquals(expectedDataMap.get("statusCode"),response.getStatusCode());
-        assertEquals(expectedDataMap.get("besincicalisan"),json.getString("data[4].employee_name"));
-        assertEquals(expectedDataMap.get("calisansayisi"),json.getList("data.id").size());
-        assertEquals(expectedDataMap.get("sondanikincicalisanmaasi"),json.getInt("data[-2].employee_salary"));
+        assertEquals(expectedDataMap.get("statusCode"), response.getStatusCode());
+        assertEquals(expectedDataMap.get("besincicalisan"), json.getString("data[4].employee_name"));
+        assertEquals(expectedDataMap.get("calisansayisi"), json.getList("data.id").size());
+        assertEquals(expectedDataMap.get("sondanikincicalisanmaasi"), json.getInt("data[-2].employee_salary"));
         assertTrue(json.getList("data.employee_age").containsAll((List) expectedDataMap.get("arananyaslar")));
-        assertEquals(((Map)expectedDataMap.get("onbirincicalisan")).get("id"),
+        assertEquals(((Map) expectedDataMap.get("onbirincicalisan")).get("id"),
                 json.getInt("data[10].id"));
 
         assertEquals(((Map<?, ?>) expectedDataMap.get("onbirincicalisan")).get("employee_name"),
