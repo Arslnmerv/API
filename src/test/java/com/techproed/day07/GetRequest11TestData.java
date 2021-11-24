@@ -19,7 +19,7 @@ public class GetRequest11TestData extends JsonPlaceHolderTestBase {
         spec01.pathParams("parametre1", "todos", "parametre2", 2);
 
         JsonPlaceHolderTestData json = new JsonPlaceHolderTestData();
-        HashMap<String, Object> expectedData = (HashMap<String, Object>) json.setupTestData();
+        HashMap<String, Object> expectedData = (HashMap<String, Object>) json.setUpTestData();
         System.out.println(expectedData);
 
         Response response = given().accept("application/json").spec(spec01).when().get("/{parametre1}/{parametre2}");
