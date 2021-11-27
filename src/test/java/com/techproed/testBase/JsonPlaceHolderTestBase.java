@@ -15,4 +15,5 @@ public class JsonPlaceHolderTestBase {
                 setBaseUri("https://jsonplaceholder.typicode.com").
                 build();
     }
+
 }
