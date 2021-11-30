@@ -27,13 +27,16 @@ public class PostRequestWithPojo01 extends JsonPlaceHolderTestBase {
     @Test
     public void test(){
         spec01.pathParam("parametre1","todos");
+
         TodosPojo requestExpected=new TodosPojo(21,201,"Tidy your room",false);
         System.out.println(requestExpected);
+
         Response response=given().
                 contentType(ContentType.JSON).
                 spec(spec01).
                 auth().basic("admin","password123").
                 body(requestExpected).when().post("/{parametre1}");
+
         response.prettyPrint();
 
         // w/de-serialization
