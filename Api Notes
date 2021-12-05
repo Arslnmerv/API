@@ -57,3 +57,10 @@ methodlarla istek gönderilirken her iki yapı da (expectedData, request body) o
 
 DELETE işleminde ise slime işleminin başarılı olduğuna dair gelen mesaj assertion edilir. Eğer
 testcase de bize bir expected verilmişse, bu data oluşturulmalıdır
+
+POJO'da olmasi gerekenler :
+1Jsonda key olanlar icin variable oluşturun ve variableların acces modifierlarını private yapin
+2) Her variable icin getter ve setter methodlarini oluşturun
+3)Parametresiz constructor oluşturun (icinde super olmasın)
+4)oluştuduğumuz variabları parametre kabul eden parametreli constructor oluşturun (icinde super olmasın)
+5)toString() methodu oluşturun
