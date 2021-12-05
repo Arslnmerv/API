@@ -19,13 +19,13 @@ public class GetRequestWithObjectMapper02 extends HerokuAppTestBase {
   https://restful-booker.herokuapp.com/booking/2 url’ine bir get request gönderildiğinde,
  status kodun 200 ve response body’nin
 {
-"firstname": "Susan",
-"lastname": "Smith",
-"totalprice": 401,
-"depositpaid": true,
-"bookingdates": {
-"checkin": "2015-12-16",
-"checkout": "2017-03-17"
+                firstname": "Susan",
+                lastname": "Smith",
+                totalprice": 401,
+                depositpaid": true,
+                bookingdates": {
+                              "checkin": "2015-12-16",
+                              "checkout": "2017-03-17"
 },
 "additionalneeds": "Breakfast"
 }

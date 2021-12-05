@@ -1,17 +1,59 @@
 ***API***
 
-//day3
 https://reqres.in/api/users?page=2  --> URI ya da endpoint
 
 https://reqres.in--> base url
 api/users --> path param
 page=2 -->query param
 
-//day4
-Assertion
-matcher class
-DE-Serialization
-Serialization
--pojo
--expected data class -testdata class
--object mapper
+1-TestBase classta RequestSpecification interface yardımı ile baseuri oluşturulur. Bu uri ,spec ile isimlendirilir.
+Oluşturulan bu base uri ‘e ek bir path parametresi ya da query parametresi varsa test classınsa bu yapı
+oluşturulur.
+
+2-GETREQUEST için expected data oluşturulur.
+ExpectedData
+(bu data, test casede belirtilen yapıdanoluşturulur)
+Bu data, testData classinde bir map oluşturularak yapılabilir
+Bu data, testData classinda bir JSONObject yardımı ile
+ oluşturulabilir
+Bu data POJO classlar yardımı ile Pojo kalıbına yazarak
+oluşturulabilir
+Bu data Object Mapper ile oluşturulan reusable method
+yardımı ile oluşturulabilir.
+
+3- Request gönderilir. Response response=given().
+accep(“application/json”).
+spec(spec..).
+when().get(“……”);
+
+4- Actual Data
+Bu data responsedan  dönen cevaba göre oluşturulur.
+Gson kütüphanesinden gelen as yapısı kullanılarak Map e
+yazdırılabilir.
+as yapısı kullanılarak bir POJO kalıbından yazdırıabilir
+Bu data Object Mapper ile oluşturulan reusable method
+yardımı ile oluşturulabilir.
+JsonPath yöntemi kullanılarak oluşturulabilir.
+
+5-Assertion
+→ assertThat – body - Matchers class üçlüsü ile assertion yapılabilir
+→JsonPath yardımı ile assertion yapılabilir
+→De-Serialization yardımı ile assertion yapılabilir. De-Serialization işlemi iki farklı şekilde yapılabilir.
+Bunlardan brincisi Gson kütüphanesini kullanmak, diğeri ise Object Mapper yöntemidir.
+Tüm yöntemler POJO classlarla beraber kullanılabilir.
+
+POST – PUT – PATCH REQUEST ler için Get requestten farklı olarak bir request body oluşturulur. Request body oluşturma yöntemi, expectedData oluşturmak ile aynıdır. Oluşturulan bu request body,
+request gönderilirken body içerisinde gönderilir. Get ten farklı olarak authorization işlemine ihtiyaç vardır.
+
+Request → Response response=given().
+accept(“application/json”).
+spec(spec..).
+auth(). ………..
+body( “request body”)
+when().post/put/patch (“……”);
+
+Not : POST/PUT/PATCH işlemlerini yaparken request body ve expectedData aynı ise, ayrı ayrı yapılar oluşturmaya gerek yoktur. Ancak gönderilecek request body ile beklenen data farklı ise, bu
+methodlarla istek gönderilirken her iki yapı da (expectedData, request body) oluşturulmak zorundadır.
+
+DELETE işleminde ise slime işleminin başarılı olduğuna dair gelen mesaj assertion edilir. Eğer
+testcase de bize bir expected verilmişse, bu data oluşturulmalıdır
