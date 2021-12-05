@@ -5,7 +5,6 @@ import com.techproed.pojos.Data;
 import com.techproed.pojos.DummyPojo;
 import com.techproed.testBase.DummyTestBase;
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import org.junit.Test;
