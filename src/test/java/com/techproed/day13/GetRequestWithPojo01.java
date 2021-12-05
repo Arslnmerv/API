@@ -5,6 +5,7 @@ import com.techproed.pojos.Data;
 import com.techproed.pojos.DummyPojo;
 import com.techproed.testBase.DummyTestBase;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import org.junit.Test;
@@ -54,18 +55,11 @@ GET Request to the URL http://dummy.restapiexample.com/api/v1/employee/1
 
         assertEquals(200, response.getStatusCode());
         assertEquals(expectedData.getStatus(), actualData.getStatus());
-        assertEquals(expectedData.getData().getemployee_name(),
-                actualData.getData().getemployee_name());
-        assertEquals(expectedData.getData().getId(),
-                actualData.getData().getId());
-        assertEquals(expectedData.getData().getemployee_age(),
-                actualData.getData().getemployee_age());
-        assertEquals(expectedData.getData().getemployee_salary(),
-                actualData.getData().getemployee_salary());
-
-        assertEquals(expectedData.getData().getprofile_image(),
-                actualData.getData().getprofile_image());
-
+        assertEquals(expectedData.getData().getemployee_name(), actualData.getData().getemployee_name());
+        assertEquals(expectedData.getData().getId(), actualData.getData().getId());
+        assertEquals(expectedData.getData().getemployee_age(), actualData.getData().getemployee_age());
+        assertEquals(expectedData.getData().getemployee_salary(), actualData.getData().getemployee_salary());
+        assertEquals(expectedData.getData().getprofile_image(), actualData.getData().getprofile_image());
         assertEquals(expectedData.getMessage(), actualData.getMessage());
 
 //----------------------------------------------------
