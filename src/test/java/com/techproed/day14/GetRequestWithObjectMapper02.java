@@ -27,7 +27,7 @@ public class GetRequestWithObjectMapper02 extends HerokuAppTestBase {
                               "checkin": "2015-12-16",
                               "checkout": "2017-03-17"
 },
-"additionalneeds": "Breakfast"
+     "additionalneeds": "Breakfast"
 }
 Olduğunu Object Mapper kullanarak test edin
      */
