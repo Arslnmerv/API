@@ -17,7 +17,9 @@ public class Post03 extends HerokuAppTestBase {
         Bookingdates bookingdates = new Bookingdates("2013-02-23","2014-10-23");
         Booking booking = new Booking("Sally","Brown",111,true,bookingdates,"Breakfast");
 
-        Response response = given().contentType(ContentType.JSON).spec(spec02).auth().basic("admin" , "password123").body(booking).when().post("/booking");
+        Response response = given().contentType(ContentType.JSON).
+                spec(spec02).auth().basic("admin" , "password123").
+                body(booking).when().post("/booking");
 
         response.prettyPrint();
 
